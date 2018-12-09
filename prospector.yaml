@@ -1,0 +1,31 @@
+inherits:
+    - strictness_medium
+    - full_pep8
+
+test-warnings: true
+
+pep8:
+    full: true
+    options:
+        max-line-length: 120
+
+pylint:
+    options:
+        max-args: 10
+    disable:
+        - redefined-builtin
+        - unused-argument
+
+mypy:
+    run: true
+    options:
+        ignore-missing-imports: true
+
+pep257:
+    run: true
+    disable:
+        - D212
+        - D203
+
+ignore-paths:
+    - migrations

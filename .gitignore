@@ -1,0 +1,10 @@
+.env
+.idea/
+*.pyc
+*.sqlite3
+/static/
+.coverage
+.noseids
+/docs/_build
+/docs/apidoc
+.mypy_cache

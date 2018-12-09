@@ -1,0 +1,18 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pytest-django = "*"
+model-mommy = "*"
+sphinx = "*"
+prospector = "*"
+mypy = "*"
+
+[packages]
+django = "*"
+django-environ = "*"
+
+[requires]
+python_version = "3.7"
