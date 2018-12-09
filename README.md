@@ -54,3 +54,7 @@ prospector
 ```bash
 pytest
 ```
+with coverage report:
+```bash
+pytest --cov=.
+```
