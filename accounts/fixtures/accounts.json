@@ -1,0 +1,29 @@
+[
+  {
+    "model": "accounts.Currency",
+    "pk": 1,
+    "fields": {
+      "code": "PHP"
+    }
+  },
+  {
+    "model": "accounts.Account",
+    "pk": 1,
+    "fields": {
+      "currency": 1,
+      "name": "bob123",
+      "owner": 1,
+      "value": "100"
+    }
+  },
+  {
+    "model": "accounts.Account",
+    "pk": 2,
+    "fields": {
+      "currency": 1,
+      "name": "alice456",
+      "owner": 2,
+      "value": "0.01"
+    }
+  }
+]

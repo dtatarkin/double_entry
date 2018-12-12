@@ -32,7 +32,7 @@ class Currency(models.Model):
     Attributes
 
      - code (CharField): Three-letter uppercase currency code.
-     Inspired by `ISO 4217 <https://en.wikipedia.org/wiki/ISO_4217>`_
+       Inspired by `ISO 4217 <https://en.wikipedia.org/wiki/ISO_4217>`_
 
     """
 
@@ -59,3 +59,6 @@ class Account(models.Model):
                               on_delete=models.CASCADE)
     currency = models.ForeignKey(Currency, related_name='accounts', on_delete=models.CASCADE)
     value = AmountField()
+
+    def __str__(self):
+        return self.name

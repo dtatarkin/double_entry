@@ -13,7 +13,7 @@ class Posting(models.Model):
      - payment (:class:`payment.models.Payment`): Related payment.
      - account (:class:`accounts.models.Account`): Corresponding Account.
      - value (`Decimal`): The  amount that Account value changes. Positive amount increases Account value,
-     negative - decreases.
+       negative - decreases.
 
     """
 

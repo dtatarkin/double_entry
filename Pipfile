@@ -10,10 +10,12 @@ model-mommy = "*"
 sphinx = "*"
 prospector = "*"
 mypy = "*"
+parameterized = "*"
 
 [packages]
 django = "*"
 django-environ = "*"
+djangorestframework = "*"
 
 [requires]
 python_version = "3.7"

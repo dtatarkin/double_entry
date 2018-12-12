@@ -16,6 +16,9 @@ class PaymentManager(models.Manager):
     @transaction.atomic
     def create_payment(self, from_account_pk: int, to_account_pk: int, value: Decimal):
         with transaction.atomic():
+            if from_account_pk == to_account_pk:
+                raise ValidationError('Unable to create payment for the same account', code='same_account')
+
             # Order Accounts so that first returns `from_account`
             order_by = 'pk' if from_account_pk < to_account_pk else '-pk'
             # Lock both Accounts in same time to avoid race conditions. Also lock related Currency (just in case).

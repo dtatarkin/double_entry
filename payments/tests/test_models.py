@@ -82,7 +82,8 @@ def test_create_payment_invalid_account():
 @pytest.mark.django_db(transaction=True)
 def test_create_payment_same_account():
     from_account = mommy.make(Account)
-    with pytest.raises(Account.DoesNotExist):
+    with pytest.raises(ValidationError) as exc_info:
         Payment.objects.create_payment(
             from_account_pk=from_account.pk, to_account_pk=from_account.pk, value=Decimal('0.01')
         )
+    assert exc_info.value.code == 'same_account'

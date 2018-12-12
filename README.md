@@ -40,7 +40,7 @@ pipenv install
 
 ## Build docs
 ```bash
-sphinx-apidoc --doc-project double_entry --output-dir ./docs/apidoc . ./*/migrations ./manage.py accounts/tests/
+sphinx-apidoc --doc-project double_entry --output-dir ./docs/apidoc . ./*/migrations ./manage.py accounts/tests/ postings/tests
 sphinx-build  ./docs ./docs/_build
 ```
 
@@ -50,7 +50,14 @@ Config file: `./prospector.yaml`
 prospector
 ```
 
-## Running tests
+## Configure
+Create `./.env` file with `SECRET_KEY` e.g.
+```dotenv
+SECRET_KEY=p8*sya*g@6)rwh*=*sev3u3t4z9p9o#t*k3h+fgx-0=6d@fhk3
+
+```
+
+## Run tests
 ```bash
 pytest
 ```
@@ -64,3 +71,27 @@ pytest --cov=.
 python manage.py makemigrations
 python manage.py migrate
 ```
+
+## Providing initial data
+```bash
+python manage.py loaddata users.json
+python manage.py loaddata accounts.json
+
+```
+
+## Run server
+```bash
+python manage.py runserver
+```
+
+## Browseble api
+ - [List of Accounts](http://127.0.0.1:8000/accounts/accounts/)
+ - [Payments List And Create](http://127.0.0.1:8000/payments/payments/)
+ 
+#Drawbacks (TODO)
+ - No user authentication yet.
+ - No data filtering implemented (e.g. django-filter).
+ - No Admin Site
+ - No Swagger support yet (e.g. drf-yasg, django-rest-swagger)
+ - Using SQLite, no PostgreSQL configured yet for easy demo launch.
+ - Not enough documentation
