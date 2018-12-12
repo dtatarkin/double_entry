@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from decimal import Decimal
 
 import environ
 
@@ -41,8 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.admindocs',
 
     'accounts',
+    'payments',
+    'postings',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +131,4 @@ STATIC_URL = '/static/'
 
 AMOUNT_MAX_DIGITS = 12
 AMOUNT_DECIMAL_PLACES = 4
+AMOUNT_VALUE_MAX = Decimal('{}.{}'.format('9'*(AMOUNT_MAX_DIGITS - AMOUNT_DECIMAL_PLACES), '9'*AMOUNT_DECIMAL_PLACES))

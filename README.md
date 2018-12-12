@@ -40,7 +40,7 @@ pipenv install
 
 ## Build docs
 ```bash
-sphinx-apidoc --doc-project double_entry --output-dir ./docs/apidoc . ./*/migrations ./manage.py
+sphinx-apidoc --doc-project double_entry --output-dir ./docs/apidoc . ./*/migrations ./manage.py accounts/tests/
 sphinx-build  ./docs ./docs/_build
 ```
 
@@ -57,4 +57,10 @@ pytest
 with coverage report:
 ```bash
 pytest --cov=.
+```
+
+## Initialize Database
+```bash
+python manage.py makemigrations
+python manage.py migrate
 ```

@@ -8,7 +8,8 @@ from model_mommy.generators import default_mapping
 
 class DefaultCharField(models.CharField):
     """
-    https://docs.djangoproject.com/en/2.1/ref/databases/#character-fields
+    MAX_LENGTH = 254 for `db_index` compatibility, for details please refer to
+    `Character fields <https://docs.djangoproject.com/en/2.1/ref/databases/#character-fields>`_
     """
 
     MAX_LENGTH = 254
