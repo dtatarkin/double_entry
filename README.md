@@ -31,7 +31,10 @@ python3 -m pip install --user pipenv
 ```
 
 ### Clone git repository
-
+```bash
+git clone https://github.com/dtatarkin/double_entry.git
+cd double_entry
+```
 
 ### Install dependancies
 ```bash
@@ -56,6 +59,10 @@ Create `./.env` file with `SECRET_KEY` e.g.
 SECRET_KEY=p8*sya*g@6)rwh*=*sev3u3t4z9p9o#t*k3h+fgx-0=6d@fhk3
 
 ```
+## Generate migrations
+```bash
+python manage.py makemigrations
+```
 
 ## Run tests
 ```bash
@@ -68,27 +75,24 @@ pytest --cov=.
 
 ## Initialize Database
 ```bash
-python manage.py makemigrations
 python manage.py migrate
 ```
 
-## Providing initial data
+## Provide initial data
 ```bash
 python manage.py loaddata users.json
 python manage.py loaddata accounts.json
-
 ```
 
 ## Run server
 ```bash
 python manage.py runserver
 ```
-
 ## Browseble api
  - [List of Accounts](http://127.0.0.1:8000/accounts/accounts/)
  - [Payments List And Create](http://127.0.0.1:8000/payments/payments/)
  
-#Drawbacks (TODO)
+# Drawbacks (TODO)
  - No user authentication yet.
  - No data filtering implemented (e.g. django-filter).
  - No Admin Site
