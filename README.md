@@ -96,9 +96,11 @@ python manage.py runserver
  - [List of Accounts](http://127.0.0.1:8000/accounts/accounts/)
  - [Payments List And Create](http://127.0.0.1:8000/payments/payments/)
  
+## Swagger
+http://127.0.0.1:8000/swagger/
+ 
 # Drawbacks (TODO)
  - No user authentication yet.
  - No data filtering implemented (e.g. django-filter).
  - No Admin Site
- - No Swagger support yet (e.g. drf-yasg, django-rest-swagger)
  - Not enough documentation
