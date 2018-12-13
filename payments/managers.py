@@ -3,6 +3,7 @@ from _pydecimal import Decimal
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import models, transaction
+from django.utils.translation import gettext as _
 
 from accounts.models import Account
 from postings.models import Posting
@@ -32,16 +33,16 @@ class PaymentManager(models.Manager):
         from_account, to_account = accounts
 
         if value <= 0:
-            raise ValidationError('Payment value must be greater than zero', code='invalid_value')
+            raise ValidationError(_('Payment value must be greater than zero'), code='invalid_value')
 
         if from_account.currency != to_account.currency:
-            raise ValidationError('Account currency must be the same.', code='invalid_currency')
+            raise ValidationError(_('Account currency must be the same.'), code='invalid_currency')
 
         if from_account.value < value:
-            raise ValidationError('Insufficient funds for an account {}'.format(from_account), code='no_funds')
+            raise ValidationError(_('Insufficient funds for an account {}').format(from_account), code='no_funds')
 
         if to_account.value + value > settings.AMOUNT_VALUE_MAX:
-            raise ValidationError('Value overflow for an account {}'.format(to_account), code='overflow')
+            raise ValidationError(_('Value overflow for an account {}').format(to_account), code='overflow')
 
         # Create Payment
         payment = self.create(from_account=from_account, to_account=to_account, value=value)
