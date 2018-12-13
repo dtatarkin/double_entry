@@ -1,9 +1,9 @@
 from urllib.parse import urlencode
 
-from django.urls import reverse
 from django.utils.translation import gettext as _
 from rest_framework import status
 from rest_framework.exceptions import APIException
+from rest_framework.reverse import reverse
 
 
 class NotImplementedAPI(APIException):

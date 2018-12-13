@@ -15,6 +15,8 @@ class PaymentViewSet(ListModelMixin, CreateModelMixin, GenericViewSet):
     list_queryset = Posting.objects.order_by('-pk')
 
     def list(self, request, *args, **kwargs):
+        # If this View can be used for different API version, we must check current API version.
+        # This is an example how we can use one View for different API versions.
         if request.version == 'payments_v1':
             queryset = self.filter_queryset(self.list_queryset)
 
@@ -28,6 +30,8 @@ class PaymentViewSet(ListModelMixin, CreateModelMixin, GenericViewSet):
         raise NotImplementedAPI()
 
     def create(self, request, *args, **kwargs):
+        # If this View can be used for different API version, we must check current API version.
+        # This is an example how we can use one View for different API versions.
         if request.version == 'payments_v1':
             return super().create(request, *args, **kwargs)
         raise NotImplementedAPI()

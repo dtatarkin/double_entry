@@ -23,9 +23,3 @@ class ListAccountsTestCase(APITestCase):
         self.assertEqual(response.data['count'], 2)
         self.assertEqual(len(response.data['results']), 2)
         self.assertSetEqual({account['id'] for account in response.data['results']}, {'account_a', 'account_b'})
-
-    def test_not_implemented(self):
-        url = reverse('accounts_v2:accounts-list')
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, status.HTTP_501_NOT_IMPLEMENTED, response.data)
-

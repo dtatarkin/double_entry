@@ -4,7 +4,7 @@ Proof of concept double-entry accounting REST API backend.
 
 ## Requirements
 * Ununtu 
-* Postgres 
+* PostgreSQL 
 
 ## Installation
 
@@ -54,10 +54,14 @@ prospector
 ```
 
 ## Configure
-Create `./.env` file with `SECRET_KEY` e.g.
+Create `./.env` see `.env.example` e.g.
 ```dotenv
-SECRET_KEY=p8*sya*g@6)rwh*=*sev3u3t4z9p9o#t*k3h+fgx-0=6d@fhk3
-
+SECRET_KEY=<SECRET_KEY>
+POSTGRES_DATABASE=double_entry
+POSTGRES_USER=double_entry
+POSTGRES_PASSWORD=double_entry
+POSTGRES_HOST=127.0.0.1
+POSTGRES_PORT=5432
 ```
 ## Generate migrations
 ```bash
@@ -97,5 +101,4 @@ python manage.py runserver
  - No data filtering implemented (e.g. django-filter).
  - No Admin Site
  - No Swagger support yet (e.g. drf-yasg, django-rest-swagger)
- - Using SQLite, no PostgreSQL configured yet for easy demo launch.
  - Not enough documentation
